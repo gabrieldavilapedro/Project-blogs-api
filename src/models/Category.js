@@ -7,7 +7,10 @@
 
 module.exports = (sequelize, DataTypes) => {
   const categoryModel = sequelize.define('Category', {
-    id: DataTypes.INTEGER,
+    id: {
+      type:DataTypes.INTEGER,
+      primaryKey: true,
+    },
     name: DataTypes.STRING,
   }, {
     underscored: true,
