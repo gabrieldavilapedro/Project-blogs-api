@@ -24,6 +24,12 @@ const user = async (displayName, email, password, image) => {
   return { message: 201, data: { token: randomToken } };
 };
 
+const getAll = async () => {
+  const users = await User.findAll({ attributes: { exclude: ['password'] } });
+  return { message: 200, data: users };
+};
+
 module.exports = {
   user,
+  getAll,
 };

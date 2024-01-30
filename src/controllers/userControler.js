@@ -6,6 +6,12 @@ const user = async (req, res) => {
   return res.status(message).json(data);
 };
 
+const getAll = async (req, res) => {
+  const { message, data } = await userService.getAll();
+  return res.status(message).json(data);
+};
+
 module.exports = {
   user,
+  getAll,
 };
