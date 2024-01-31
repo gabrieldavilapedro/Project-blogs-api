@@ -1,8 +1,8 @@
-const jwt = require('jsonwebtoken');
 const { User } = require('../models');
+const { tokenGenerator } = require('../utils/auth');
 
 const emailmensagem = '"displayName" length must be at least 8 characters long';
-const passwordmensagem = '"password" length must be 6 characters long';
+const passwordmensagem = '"password" length must be at least 6 characters long';
 
 const user = async (displayName, email, password, image) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,7 +20,9 @@ const user = async (displayName, email, password, image) => {
     return { message: 409, data: { message: 'User already registered' } }; 
   }
   await User.create({ displayName, email, password, image });
-  const randomToken = jwt.sign({ email }, process.env.JWT_SECRET);
+
+  const randomToken = await tokenGenerator(email);
+
   return { message: 201, data: { token: randomToken } };
 };
 
