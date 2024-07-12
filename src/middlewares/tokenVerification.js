@@ -7,16 +7,14 @@ const tokenVerification = (req, res, next) => {
     return res.status(401).json({ message: 'Token not found' });
   }
   const [, token] = authorization.split(' ');
-  if (!token) {
-    return res.status(401).json({ message: 'Expired or invalid token',
-    });
+  try {
+    const { user } = tokenValidator(token);
+    req.locals = user;
+    next();
   }
-  const payload = tokenValidator(token);
-  if (!payload) {
+  catch (err) {
     return res.status(401).json({ message: 'Expired or invalid token' });
   }
-
-  next();
 };
 
 module.exports = tokenVerification;

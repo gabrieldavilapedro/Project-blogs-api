@@ -6,7 +6,8 @@ const login = async (email, password) => {
 
   if (!email || !password) {
     return {
-      message: 400, data: { message: 'Some required fields are missing' } }; 
+      message: 400, data: { message: 'Some required fields are missing' }
+    };
   }
 
   if (!user || user.password !== password) {
