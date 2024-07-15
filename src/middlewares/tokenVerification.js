@@ -8,8 +8,8 @@ const tokenVerification = (req, res, next) => {
   }
   const [, token] = authorization.split(' ');
   try {
-    const { user } = tokenValidator(token);
-    req.locals = user;
+    const user = tokenValidator(token);
+    req.locals = user.data.id
     next();
   }
   catch (err) {

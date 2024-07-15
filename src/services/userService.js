@@ -8,16 +8,16 @@ const user = async (displayName, email, password, image) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const emailIsValid = emailRegex.test(email);
   if (emailIsValid === false) {
-    return { message: 400, data: { message: '"email" must be a valid email' } }; 
+    return { message: 400, data: { message: '"email" must be a valid email' } };
   }
   const emailExists = await User.findOne({ where: { email } });
-  if (displayName.length < 8) return { message: 400, data: { message: emailmensagem } }; 
-  
+  if (displayName.length < 8) return { message: 400, data: { message: emailmensagem } };
+
   if (password.length < 6) {
-    return { message: 400, data: { message: passwordmensagem } }; 
+    return { message: 400, data: { message: passwordmensagem } };
   }
   if (emailExists) {
-    return { message: 409, data: { message: 'User already registered' } }; 
+    return { message: 409, data: { message: 'User already registered' } };
   }
   await User.create({ displayName, email, password, image });
 
@@ -39,8 +39,14 @@ const getById = async (id) => {
   return { message: 200, data: userId };
 };
 
+const deleteUser = async (userId) => {
+  await User.destroy({ where: { id: userId } });
+  return { message: 204, data: {} }
+};
+
 module.exports = {
   user,
   getAll,
   getById,
+  deleteUser,
 };

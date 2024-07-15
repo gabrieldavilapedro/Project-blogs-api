@@ -10,10 +10,16 @@ const login = async (email, password) => {
     };
   }
 
-  if (!user || user.password !== password) {
+  if (!user) {
+    return { message: 400, data: { message: 'unregistered user' } };
+  }
+
+  if (user.password !== password) {
     return { message: 400, data: { message: 'Invalid fields' } };
   }
-  const randomToken = await tokenGenerator(email);
+
+  delete user.password;
+  const randomToken = await tokenGenerator(user);
   return {
     message: 200, data: { token: randomToken },
   };
