@@ -42,8 +42,7 @@ Agora faça o Download deste arquivo, onde esta documentado as rotas.
 
 * [Project-blogs-api.postman](https://drive.google.com/file/d/1AQT9_Oych7Xe5yCUj4E-XQcdIZB7VkTy/view?usp=drive_link)
 
-Exporte na ferramenta do postMen e faça as requisiçôes.
-
+Importe na ferramenta do postmam e faça as requisições.
 
 ### Considerações
 
