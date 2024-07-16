@@ -38,9 +38,11 @@ Execute o servidor de desenvolvimento:
 npm run dev
 ``````
 
-Agora faça as requisiçôes utilizando a ferramenta postMen
+Agora faça o Download deste arquivo, onde esta documentado as rotas.
 
-[Download project-blogs-api.postman_collection.json](src/project-blogs-api.postman_collection.json)
+* [Project-blogs-api.postman](https://drive.google.com/file/d/1AQT9_Oych7Xe5yCUj4E-XQcdIZB7VkTy/view?usp=drive_link)
+
+Exporte na ferramenta do postMen e faça as requisiçôes.
 
 
 ### Considerações
