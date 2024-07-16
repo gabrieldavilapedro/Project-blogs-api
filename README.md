@@ -40,6 +40,8 @@ npm run dev
 
 Agora faça as requisiçôes utilizando a ferramenta postMen
 
+[Download project-blogs-api.postman_collection.json](src/project-blogs-api.postman_collection.json)
+
 
 ### Considerações
 
